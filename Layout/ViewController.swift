@@ -23,7 +23,7 @@ extension UIView {
 
 
 extension UILabel {
-    convenience init(text: String, size: UIFontTextStyle, multiline: Bool = false) {
+    convenience init(text: String, size: UIFont.TextStyle, multiline: Bool = false) {
         self.init()
         font = UIFont.preferredFont(forTextStyle: size)
         self.text = text
@@ -107,7 +107,7 @@ final class LayoutContainer: UIView {
         self.layout = layout
         super.init(frame: .zero)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(setNeedsLayout), name: Notification.Name.UIContentSizeCategoryDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setNeedsLayout), name: UIContentSizeCategory.didChangeNotification, object: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
